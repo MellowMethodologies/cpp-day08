@@ -17,20 +17,20 @@ Span& Span::operator=(const Span& other) {
     return *this;
 }
 
-void Span::addNumber(int number){
+void Span::addNumber(int number) {
     if (N == V.size())
        throw std::out_of_range("Not enough space ");
     V.push_back(number);
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end){
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
     if (N < (std::distance(begin, end) + V.size()))
         throw std::out_of_range("Not enough space ");
     V.insert(V.end(), begin, end);
 }
 
 
-unsigned int Span::longestSpan(){
+unsigned int Span::longestSpan() {
     if (V.size() == 0 || V.size() == 1)
         throw std::out_of_range("Not enough elements in the container");
     return ( *std::max_element( V.begin(), V.end() ) - *std::min_element( V.begin(), V.end() ));

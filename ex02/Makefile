@@ -1,6 +1,4 @@
-SRCS = main.cpp Span.cpp
-
-OBJS = main.o Span.o
+SRCS = main.cpp
 
 NAME = Span
 
@@ -8,15 +6,12 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-HEADER = Span.hpp
+HEADER = MutantStack.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $^ -o $@
-
-%.o: %.cpp $(HEADER)
-	$(CC) $(FLAGS) -c $< -o $@
+$(NAME): $(SRCS) $(HEADER)
+	$(CC) $(FLAGS) $< -o $@
 
 clean:
 	rm -f $(OBJS)
